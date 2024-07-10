@@ -43,7 +43,7 @@ public class VerifyAddressDetailsInCheckOutPage {
     
     
     @Test(dataProvider = "dataset")
-	public void SignUp(String name, String email) throws InterruptedException {
+	public void SignUp(String name, String email) {
 		
     	driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[4]")).click();
 		WebElement signupName = driver.findElement(By.xpath("//form[@action='/signup']/input[2]"));
@@ -82,7 +82,7 @@ public class VerifyAddressDetailsInCheckOutPage {
 		driver.findElement(By.xpath("//div[@class='modal-footer']/button")).click();
 		driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[3]")).click();
 		
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		String cartPage = driver.getCurrentUrl();
 		Assert.assertEquals(cartPage, "https://automationexercise.com/view_cart");
 		System.out.println("=====================");
@@ -104,8 +104,8 @@ public class VerifyAddressDetailsInCheckOutPage {
 	
 	
 	@AfterSuite
-	public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 

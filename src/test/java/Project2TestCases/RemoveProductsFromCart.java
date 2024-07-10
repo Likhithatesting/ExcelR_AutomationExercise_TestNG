@@ -58,9 +58,9 @@ public class RemoveProductsFromCart {
 		
 	}
 	
-	public void removeProduct() throws InterruptedException {
+	public void removeProduct() {
 		
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		Xbutton.click();
 		
 		//To verify that product is removed from the cart
@@ -73,8 +73,8 @@ public class RemoveProductsFromCart {
 	}
 	
 	
-	public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 

@@ -111,8 +111,8 @@ public class PlaceOrderRegisterBeforeCheckout {
 			 }
 			 
 			//To display logged in as Message
-	public void loggedInAsMsg() throws InterruptedException {
-				 Thread.sleep(5000);
+	public void loggedInAsMsg() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 				 System.out.println("=======================");
 				 if(logInAsMsg.isDisplayed()) {
 					 System.out.println(logInAsMsg.getText());
@@ -122,13 +122,13 @@ public class PlaceOrderRegisterBeforeCheckout {
 				 }
 			 }
 	
-    public void addCart() throws InterruptedException {
+    public void addCart() {
 		
 	    	prod1.click();
 	    	cont1.click();
 		
 		    prod2.click();
-	    	Thread.sleep(5000);
+		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	    	cont2.click();
 		
 		    cart.click();
@@ -159,7 +159,7 @@ public class PlaceOrderRegisterBeforeCheckout {
 		 
 	 }
    
-   public void addCardDetails() throws InterruptedException {
+   public void addCardDetails() {
 		 
 		 cardName.sendKeys("Likhitha");
 		 cardNum.sendKeys("1234 5678 1234");
@@ -168,7 +168,7 @@ public class PlaceOrderRegisterBeforeCheckout {
 		 expYear.sendKeys("2030");
 		 
 		 pay.click();
-		 Thread.sleep(3000);
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		 
 		 //display order success message
 		 //System.out.println(orderPlaced.getText());
@@ -188,8 +188,8 @@ public class PlaceOrderRegisterBeforeCheckout {
 			 cont3.click();
 		 }
 	 
-	 public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	 public void closeBrowser() {
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 	

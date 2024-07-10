@@ -59,8 +59,8 @@ public class LoginWithIncorrectDetails {
 	} 
 		 
 	// To Close the Browser
-	public void closeBrowser() throws InterruptedException {
-		Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.close();
 	}
 

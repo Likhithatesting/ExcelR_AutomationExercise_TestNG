@@ -32,7 +32,7 @@ public class AddToCartFromRecommendedItems {
 		
 	}
 	
-	public void RecommendedItems() throws InterruptedException {
+	public void RecommendedItems() {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		//Scroll down till the bottom of the page
@@ -41,7 +41,7 @@ public class AddToCartFromRecommendedItems {
 		System.out.println("==================================");
 		System.out.println(recommend.getText());
 		
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		addCart.click();
 		viewCart.click();
 		
@@ -50,8 +50,8 @@ public class AddToCartFromRecommendedItems {
 		
 	}
 	
-	public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 	

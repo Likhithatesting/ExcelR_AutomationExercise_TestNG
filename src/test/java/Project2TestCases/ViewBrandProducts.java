@@ -32,14 +32,14 @@ public class ViewBrandProducts {
 		
 	}
 	
-	public void viewBrands() throws InterruptedException {
+	public void viewBrands() {
 		
 		Products.click();
 		System.out.println(BrandProducts.getText());
 		Brand1.click();
 		
 		
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://automationexercise.com/brand_products/Babyhug");
 		System.out.println("======================================");
@@ -59,8 +59,8 @@ public class ViewBrandProducts {
 		
 	}
 	
-	public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 

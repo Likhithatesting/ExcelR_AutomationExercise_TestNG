@@ -42,14 +42,14 @@ public class VerifyScrollUsingArrowButton {
 	}
 	
 	@Test(priority = 2)
-	public void scrollDown() throws InterruptedException {
+	public void scrollDown() {
 		
 		
 		//Scroll down to footer
 		WebElement scrolldowntext = driver.findElement(By.xpath("//footer[@id='footer']/div/div/div/div[2]/div/h2"));
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].scrollIntoView(true);", scrolldowntext);
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		//verify text subscription
 		if(scrolldowntext.isDisplayed()) {
@@ -58,14 +58,14 @@ public class VerifyScrollUsingArrowButton {
 	}
 		
 		@Test(priority = 3)
-		public void scrollUp() throws InterruptedException {
+		public void scrollUp() {
 		
 		//Scroll Up to Top
-			Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         WebElement scrollUptext = driver.findElement(By.xpath("//div[@class='item active']//h2[contains(text(),'Full-Fledged practice website for Automation Engineers')]"));
         JavascriptExecutor jse1 = (JavascriptExecutor) driver;
         jse1.executeScript("arguments[0].scrollIntoView(true);", scrollUptext);
-		Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		//Verify that page is scrolled up and 'Full-Fledged practice Website for Automation Engineers' text is visible on screen
 		if(scrollUptext.isDisplayed()) {
@@ -76,8 +76,8 @@ public class VerifyScrollUsingArrowButton {
 	}
 	
 	@AfterSuite
-	public void closeBrowser() throws InterruptedException {
-		Thread.sleep(2000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.close();
 	}
 

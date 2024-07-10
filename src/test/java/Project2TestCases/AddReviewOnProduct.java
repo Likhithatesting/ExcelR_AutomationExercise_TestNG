@@ -36,13 +36,13 @@ public class AddReviewOnProduct {
 		
 	}
 	
-	public void reviewProduct() throws InterruptedException {
+	public void reviewProduct() {
 		
 		products.click();
 		
 		//Navigated to All products Page
 		
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		String prodURL = driver.getCurrentUrl();
 		Assert.assertEquals(prodURL, "https://automationexercise.com/products");
 		System.out.println("Navigated to Products URL Page");
@@ -69,8 +69,8 @@ public class AddReviewOnProduct {
 	}
 	
 	
-	public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 

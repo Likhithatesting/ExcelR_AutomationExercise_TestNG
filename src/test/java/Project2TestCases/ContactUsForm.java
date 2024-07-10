@@ -58,7 +58,7 @@ public class ContactUsForm {
 	}
 	
 	
-	public void submitForm() throws InterruptedException {
+	public void submitForm() {
 		
 		upload.sendKeys("D:\\ExcelR\\SELENIUM\\Jyothi Shukla Trainer\\PROJECTS\\Automation_Exercise_Ecom_Project_2\\Contact US Form_Project2.docx");
 		submit.click();
@@ -70,7 +70,7 @@ public class ContactUsForm {
 		System.out.println(successMsg.getText());
 		
 		home.click();
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		//To verify user navigated to home page
 		 
 		 String homeURL = driver.getCurrentUrl();
@@ -81,8 +81,8 @@ public class ContactUsForm {
 	}
 	
 	// To Close the Browser
-		public void closeBrowser() throws InterruptedException {
-			Thread.sleep(5000);
+		public void closeBrowser() {
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			driver.close();
 		}
 

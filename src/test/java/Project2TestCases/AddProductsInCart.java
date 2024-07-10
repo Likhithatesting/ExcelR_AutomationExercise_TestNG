@@ -30,7 +30,6 @@ public class AddProductsInCart {
 	@FindBy(id="cart_info_table") WebElement verifyCart;
 	
 	
-	
 	public void url() {
 		driver.get("https://automationexercise.com");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -70,9 +69,9 @@ public class AddProductsInCart {
 		}
 	}
 	
-	 public void closeBrowser() throws InterruptedException {
+	 public void closeBrowser() {
 			
-			Thread.sleep(5000);
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			driver.close();
 	     }
 	

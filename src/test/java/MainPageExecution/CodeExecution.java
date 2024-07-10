@@ -88,7 +88,7 @@ public class CodeExecution {
 	}
 	
 		@Test(priority = 1)
-		public void UserRegisterAndDelete() throws InterruptedException {
+		public void UserRegisterAndDelete() {
 
 		urd.url();
 		urd.reguser();
@@ -112,7 +112,7 @@ public class CodeExecution {
 }
 		
 		@Test(priority = 2)
-		public void LoginUserWithCorrectDetails() throws InterruptedException {
+		public void LoginUserWithCorrectDetails() {
 			lu.url();
 			lu.loginUser();
 			lu.enterLoginDetails("likhitha1@gmail.com", "Likith@123");
@@ -123,7 +123,7 @@ public class CodeExecution {
 		}
 		
 		@Test(priority = 3)
-		public void LoginWithIncorrectDetails() throws InterruptedException {
+		public void LoginWithIncorrectDetails() {
 			lwi.url();
 			lwi.loginUser();
 			lwi.enterLoginDetails("likith@gmail.com", "Likitha");
@@ -132,7 +132,7 @@ public class CodeExecution {
 		}
 	
 	   @Test(priority = 4)
-	   public void LogOutUser() throws InterruptedException {
+	   public void LogOutUser() {
 		   
 		   lou.url();
 		   lou.loginUser();
@@ -145,7 +145,7 @@ public class CodeExecution {
 	   }
 	
 	@Test(priority = 5)
-	public void RegisterWithExistingEmail() throws InterruptedException {
+	public void RegisterWithExistingEmail() {
 		ree.url();
 		ree.reguser();
 		ree.enterName("Likhitha");
@@ -156,7 +156,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 6)
-	public void ContactUsForm() throws InterruptedException {
+	public void ContactUsForm() {
 		
 		cuf.url();
 		cuf.contactForm();
@@ -167,7 +167,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 7)
-	public void TestCasePage() throws InterruptedException {
+	public void TestCasePage() {
 		
 		tcp.url();
 		tcp.testcasePage();
@@ -175,7 +175,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 8)
-	public void VerifyAllProductsAndProductDetails() throws InterruptedException {
+	public void VerifyAllProductsAndProductDetails() {
 		
 		vpp.url();
 		vpp.Products();
@@ -184,7 +184,7 @@ public class CodeExecution {
 	
 	
 	@Test(priority = 9)
-	public void SearchProduct() throws InterruptedException {
+	public void SearchProduct() {
 		
 		sp.url();
 		sp.Products();
@@ -196,7 +196,7 @@ public class CodeExecution {
 	
 	
 	@Test(priority = 10)
-	public void VerifySubscriptionInHomePage() throws InterruptedException {
+	public void VerifySubscriptionInHomePage() {
 		vshp.url();
 		vshp.verifySubscription();
 		vshp.subscEmail("likhitha@gmail.com");
@@ -205,7 +205,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 11)
-	public void VerifySubscriptionInCartPage() throws InterruptedException {
+	public void VerifySubscriptionInCartPage() {
 		vscp.url();
 		vscp.verifySubscription();
 		vscp.subscEmail("likhitha@gmail.com");
@@ -213,16 +213,16 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 12)
-	public void AddProductsInCart() throws InterruptedException {
+	public void AddProductsInCart() {
 		
 		apc.url();
 		apc.addToCart();
-		//apc.closeBrowser();
+		apc.closeBrowser();
 		
 	}
 	
 	@Test(priority = 13)
-	public void VerifyProductQtyInCart() throws InterruptedException {
+	public void VerifyProductQtyInCart() {
 		vpac.url();
 		vpac.viewCart();
 		vpac.closeBrowser();
@@ -230,7 +230,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 14)
-	public void PlaceOrderRegisterWhileCheckout() throws InterruptedException {
+	public void PlaceOrderRegisterWhileCheckout() {
 		
 		powc.url();
 		powc.addCart();
@@ -258,7 +258,7 @@ public class CodeExecution {
 	
 	@Test(priority = 15)
 	
-	public void PlaceOrderRegisterBeforeCheckout() throws InterruptedException {
+	public void PlaceOrderRegisterBeforeCheckout() {
 		
 		pobc.url();
 		pobc.signIn();
@@ -275,7 +275,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 16)
-	public void PlaceOrderLoginBeforeCheckout() throws InterruptedException {
+	public void PlaceOrderLoginBeforeCheckout() {
 		
 		polbc.url();
 		polbc.loginUser();
@@ -290,7 +290,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 17)
-	public void RemoveProductsFromCart() throws InterruptedException {
+	public void RemoveProductsFromCart() {
 		
 		rpc.url();
 		rpc.addToCart();
@@ -301,7 +301,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 18)
-	public void ViewCategoryProducts() throws InterruptedException {
+	public void ViewCategoryProducts() {
 		
 		vcp.url();
 		vcp.viewCategory();
@@ -310,7 +310,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 19)
-	public void ViewBrandProducts() throws InterruptedException {
+	public void ViewBrandProducts() {
 		
 		vbp.url();
 		vbp.viewBrands();
@@ -319,7 +319,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 20)
-	public void SearchProductsVerifyCartAfterLogin() throws InterruptedException {
+	public void SearchProductsVerifyCartAfterLogin() {
 		
 		spvc.url();
 		spvc.searchProduct();
@@ -329,7 +329,7 @@ public class CodeExecution {
 	}
 	
 	@Test(priority = 21)
-	public void AddReviewOnProduct() throws InterruptedException {
+	public void AddReviewOnProduct() {
 		arp.url();
 		arp.reviewProduct();
 		arp.commentReview();
@@ -338,7 +338,7 @@ public class CodeExecution {
 	
 	
 	@Test(priority = 22)
-	public void AddToCartFromRecommendedItems() throws InterruptedException {
+	public void AddToCartFromRecommendedItems() {
 		
 		acri.url();
 		acri.RecommendedItems();

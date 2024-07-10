@@ -42,12 +42,12 @@ public class VerifyScrollWithOutArrowButton {
 		}
 		
 		@Test(priority = 2)
-		public void subscription() throws InterruptedException {
+		public void subscription() {
 			
 			//Scroll down to footer
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("window.scrollBy(0, document.body.scrollHeight)");
-			Thread.sleep(2000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 			//verify text subscription
 			WebElement subscription = driver.findElement(By.xpath("//footer[@id='footer']/child::div/child::div/child::div/child::div[2]/child::div/child::h2"));
 			String s=subscription.getText();
@@ -57,7 +57,7 @@ public class VerifyScrollWithOutArrowButton {
 			//Scroll Up page to Top
 			JavascriptExecutor jse1 = (JavascriptExecutor) driver;
 			jse1.executeScript("window.scrollTo(0, 0);");
-			Thread.sleep(2000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 			
 			//Verify that page is scrolled up and 'Full-Fledged practice Website for Automation Engineers' text is visible on screen
 			WebElement website=driver.findElement(By.xpath("//div[@class='item active']//h2"));
@@ -66,8 +66,8 @@ public class VerifyScrollWithOutArrowButton {
 		}
 		
 		@AfterSuite
-		public void closeBrowser() throws InterruptedException {
-			Thread.sleep(2000);
+		public void closeBrowser() {
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			driver.close();
 		}
 

@@ -42,10 +42,10 @@ public class SearchProductsVerifyCartAfterLogin {
 		
 	}
 	
-	public void searchProduct() throws InterruptedException {
+	public void searchProduct(){
 		Products.click();
 		
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://automationexercise.com/products");
 		System.out.println("======================================");
@@ -61,7 +61,7 @@ public class SearchProductsVerifyCartAfterLogin {
 	
 	//List searched products
 	
-	public void searchList() throws InterruptedException {
+	public void searchList() {
 		
 		List<WebElement> searchProducts = driver.findElements(By.xpath("//div[@class='col-sm-4']/div/div/div/a"));
 		
@@ -69,7 +69,7 @@ public class SearchProductsVerifyCartAfterLogin {
 			
 			searchProducts.get(i).click();
 			cont.click();
-			Thread.sleep(2000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 			
 		}
 		
@@ -100,8 +100,8 @@ public class SearchProductsVerifyCartAfterLogin {
 		
 	}
 	
-	public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 

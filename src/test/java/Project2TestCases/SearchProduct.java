@@ -34,10 +34,10 @@ public class SearchProduct {
 		System.out.println("Page is Visible");
 	}
 	
-	public void Products() throws InterruptedException {
+	public void Products() {
 		
 		products.click();
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
 		String productsPage = driver.getCurrentUrl();
 		 Assert.assertEquals(productsPage, "https://automationexercise.com/products");
@@ -50,11 +50,11 @@ public class SearchProduct {
 
          }
 	
-	public void searchProduct(String sp) throws InterruptedException {
+	public void searchProduct(String sp) {
 		
 		searchProd.sendKeys(sp);
 		searchBtn.click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		String searchList = driver.getCurrentUrl();
 		 Assert.assertEquals(searchList, "https://automationexercise.com/products?search=Tshirt");
@@ -69,7 +69,7 @@ public class SearchProduct {
 		
 	}
 	
-	public void listDisplay() throws InterruptedException {
+	public void listDisplay() {
 		
 		List<WebElement> list_of_products = driver.findElements(By.xpath("//div[@class='features_items']/div"));
 		
@@ -80,13 +80,13 @@ public class SearchProduct {
 			String productName = list_of_products.get(i).getText();
 			System.out.println("======================");
 			System.out.println(productName);
-			Thread.sleep(2000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		}
 		}
 	
-     public void closeBrowser() throws InterruptedException {
+     public void closeBrowser() {
 		
-		Thread.sleep(5000);
+    	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.close();
      }
 	

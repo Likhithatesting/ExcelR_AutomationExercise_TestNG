@@ -32,10 +32,10 @@ public class VerifyAllProductsAndProductDetails {
 		System.out.println("Page is Visible");
 	}
 	
-	public void Products() throws InterruptedException {
+	public void Products() {
 		
 		products.click();
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
 		String productsPage = driver.getCurrentUrl();
 		 Assert.assertEquals(productsPage, "https://automationexercise.com/products");
@@ -48,7 +48,7 @@ public class VerifyAllProductsAndProductDetails {
 		 
 		 //To view Product
 		 viewProduct.click();
-		 Thread.sleep(5000);
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 
 		 String firstProduct = driver.getCurrentUrl();
 		 Assert.assertEquals(firstProduct, "https://automationexercise.com/product_details/1");
@@ -61,9 +61,9 @@ public class VerifyAllProductsAndProductDetails {
 		 
 	}
 	
-public void closeBrowser() throws InterruptedException {
+public void closeBrowser() {
 		
-		Thread.sleep(5000);
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.close();
 }
 

@@ -34,13 +34,13 @@ public class ViewCategoryProducts {
 		
 	}
 	
-	public void viewCategory() throws InterruptedException {
+	public void viewCategory() {
 		
 		System.out.println(categories.getText());
 		Women.click();
 		Tops.click();
 		
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://automationexercise.com/category_products/2");
 		System.out.println("Category Page is displayed.");
@@ -60,8 +60,8 @@ public class ViewCategoryProducts {
 		
 	}
 	
-	public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 

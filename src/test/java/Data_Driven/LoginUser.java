@@ -30,9 +30,9 @@ public class LoginUser {
 	}
 	
 	@Test(priority = 1)
-	public void loginUser() throws InterruptedException {
+	public void loginUser() {
 		driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[4]/a")).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 		
 		
@@ -68,8 +68,8 @@ public class LoginUser {
 		}
 	
 	@AfterSuite
-	public void closeBrowser() throws InterruptedException {
-		Thread.sleep(3000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.close();
 	}
 

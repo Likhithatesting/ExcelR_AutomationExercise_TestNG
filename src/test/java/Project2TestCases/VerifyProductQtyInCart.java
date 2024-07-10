@@ -34,11 +34,11 @@ public class VerifyProductQtyInCart {
 		System.out.println("Page is Visible");
 	}
 	
-	public void viewCart() throws InterruptedException {
+	public void viewCart() {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		viewProd.click();
 		
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		String productdetail = driver.getCurrentUrl();
 		Assert.assertEquals(productdetail,"https://automationexercise.com/product_details/2");
 		System.out.println("Product detail is visible");
@@ -50,14 +50,14 @@ public class VerifyProductQtyInCart {
 		
 		viewCart.click();
 		
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		System.out.println("Product Qty displayed in cart page with exact quantity: "+matchQty.getText());
 		
 	
 		}
 	
-	public void closeBrowser() throws InterruptedException {
-		Thread.sleep(5000);
+	public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.close();
 	}
 

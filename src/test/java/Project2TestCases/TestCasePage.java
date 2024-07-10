@@ -31,10 +31,10 @@ public class TestCasePage {
 		System.out.println("Page is Visible");
 	}
 	
-	public void testcasePage() throws InterruptedException {
+	public void testcasePage() {
 		
 		tcPage.click();
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
 		String tcURL = driver.getCurrentUrl();
 		 Assert.assertEquals(tcURL, "https://automationexercise.com/test_cases");
@@ -43,8 +43,8 @@ public class TestCasePage {
 	}
 	
 	// To Close the Browser
-			public void closeBrowser() throws InterruptedException {
-				Thread.sleep(5000);
+			public void closeBrowser() {
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 				driver.close();
 			}
 

@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,14 +23,14 @@ public class DownloadInvoiceAfterPurchaseOrder {
 	WebDriver driver;
 	@BeforeSuite
 	
-	public void setup() throws InterruptedException
+	public void setup()
 	
 	{
 	
 	    driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://automationexercise.com");
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 	}
 	
 	
@@ -46,7 +47,7 @@ public class DownloadInvoiceAfterPurchaseOrder {
 	}
 	
 	@Test(priority=2)
-	public void AddProductCart() throws InterruptedException
+	public void AddProductCart()
 	{
 			
 		WebElement prod1 = driver.findElement(By.xpath("//div[@class='features_items']/div[2]"));
@@ -56,16 +57,16 @@ public class DownloadInvoiceAfterPurchaseOrder {
 		
 		WebElement addToCart1 = driver.findElement(By.xpath("//div[@class='features_items']/div[2]/div/div/div/a"));
 		addToCart1.click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		WebElement cont = driver.findElement(By.xpath("//div[@class='modal-content']/div[3]/button"));
 		cont.click();
-		Thread.sleep(3000);		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));	
 						
 		//Click 'Cart' button
 		WebElement cart=driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[3]/a"));
 		cart.click();
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		
 		// Click Proceed To Checkout
 		WebElement proceedTocheckout=driver.findElement(By.xpath("//section[@id='do_action']/div[1]/div/div/a"));
@@ -74,11 +75,11 @@ public class DownloadInvoiceAfterPurchaseOrder {
 	}
 	
 	@Test(priority=3)
-	public void RegisterUserPage() throws InterruptedException
+	public void RegisterUserPage()
 	{
 		
 		driver.findElement(By.xpath("//div[@class='modal-content']/div[2]/p/a")).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		WebElement name = driver.findElement(By.xpath("//input[@type='text']"));
 		name.sendKeys("Likhitha");
@@ -87,12 +88,11 @@ public class DownloadInvoiceAfterPurchaseOrder {
 		email.sendKeys("likhitha26@gmail.com");
 		
 		driver.findElement(By.xpath("//div[@class='col-sm-4']/child::div/child::form/child::button")).submit();
-		Thread.sleep(2000);
-		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 	}
 	
 	@Test(priority=4)
-	public void RegisterForm() throws InterruptedException, AWTException {
+	public void RegisterForm() throws AWTException {
 		
 		WebElement title=driver.findElement(By.xpath("//div[@class='login-form']/child::form/child::div/child::div[2]/child::label/child::div/child::span/child::input"));
 		title.click();
@@ -100,7 +100,7 @@ public class DownloadInvoiceAfterPurchaseOrder {
 		WebElement password= driver.findElement(By.xpath("//input[@id='password']"));
 		password.sendKeys("Likith@123");
 		
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		JavascriptExecutor js =(JavascriptExecutor)driver;
 		js.executeScript("window.scroll(0,250)");	
@@ -116,7 +116,7 @@ public class DownloadInvoiceAfterPurchaseOrder {
 		
 		Select st2 = new Select(driver.findElement(By.id("years")));
 		st2.selectByValue("1993");
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		//select check box
 		driver.findElement(By.xpath("//input[@name='newsletter']")).click();
@@ -126,7 +126,7 @@ public class DownloadInvoiceAfterPurchaseOrder {
 		
 	}
 	@Test(priority=5)
-	public void Register() throws InterruptedException
+	public void Register()
 		{
 		
 			
@@ -161,7 +161,7 @@ public class DownloadInvoiceAfterPurchaseOrder {
 		WebElement createAcc= driver.findElement(By.xpath("//button[@type='submit']"));
 		createAcc.submit();
 		
-		Thread.sleep(1000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		//verify account created is visible
 				WebElement accCreated = driver.findElement(By.xpath("//b[text()='Account Created!']"));
@@ -177,13 +177,13 @@ public class DownloadInvoiceAfterPurchaseOrder {
 
 		
 		driver.findElement(By.xpath("//a[@class='btn btn-primary']")).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		}
 	
 	@Test(priority=6)
-	public void loggedInAsMsg() throws InterruptedException {
-		 Thread.sleep(5000);
+	public void loggedInAsMsg() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 System.out.println("=======================");
 		 WebElement logInAsMsg = driver.findElement(By.xpath("//div[@class='shop-menu pull-right']/ul/li[10]/a"));
 		if(logInAsMsg.isDisplayed()) {
@@ -195,7 +195,7 @@ public class DownloadInvoiceAfterPurchaseOrder {
 	 }
 	
 	@Test(priority=7)
-	public void cart() throws InterruptedException {
+	public void cart() {
 		
 		//Click 'Cart' button
 		WebElement cart1=driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[3]/a"));
@@ -223,12 +223,12 @@ public class DownloadInvoiceAfterPurchaseOrder {
 	}
 	
 	@Test(priority=8)
-	public void placeorder() throws InterruptedException {
+	public void placeorder() {
 		
 		//place order
 				WebElement placeOrder=driver.findElement(By.xpath("//section[@id='cart_items']/div/div[7]/a"));
 				placeOrder.click();
-				Thread.sleep(3000);
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 								
 		//card name
 		WebElement cardName=driver.findElement(By.xpath("//section[@id='cart_items']/div/div[3]/div/div[2]/form/div/div/input"));
@@ -254,7 +254,7 @@ public class DownloadInvoiceAfterPurchaseOrder {
 		WebElement payAndorder =driver.findElement(By.xpath("//section[@id='cart_items']/div/div[3]/div/div[2]/form/div[5]/div/button"));
 		payAndorder.submit();
 		
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		System.out.println("=======================");
 		System.out.println(driver.findElement(By.xpath("//div[@class='col-sm-9 col-sm-offset-1']/h2")).getText());
 		System.out.println("=======================");
@@ -276,15 +276,23 @@ public class DownloadInvoiceAfterPurchaseOrder {
 			break;
 		}
 	}
-		
+	
+	//Other Way to verify invoice downloaded
+//		   public boolean isFileDownloaded(String filename) throws IOException
+//	 {
+//         String downloadPath = System.getProperty("users");
+//         File file = new File(downloadPath + "/Downloads/"+ filename);
+//         boolean flag = (file.exists()) ? true : false ;
+//         return flag;
+//        
 	}
 	
 	@Test(priority=10)
-	public void deletAccount() throws InterruptedException {
+	public void deletAccount() {
 		//Click 'Delete Account' button
 				WebElement deletAcc= driver.findElement(By.xpath("//div[@class='shop-menu pull-right']/ul/li[5]/a"));
 				deletAcc.click();
-				Thread.sleep(2000);
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 				
 				// Verify that 'ACCOUNT DELETED!' is visible
 				System.out.println("=======================");
@@ -295,8 +303,8 @@ public class DownloadInvoiceAfterPurchaseOrder {
 	}
 	
 	@AfterSuite
-	 public void closeBrowser() throws InterruptedException {
-		 Thread.sleep(5000);
+	 public void closeBrowser() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		 driver.close();
 	 }
 
